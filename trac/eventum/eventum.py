@@ -30,7 +30,7 @@ class TracEventumLink(Component):
 	# IWikiSyntaxProvider methods
 	def get_wiki_syntax(self):
 		def issue(formatter, match, fullmatch):
-			return tag.a(match, href = self.eventum_url % int(fullmatch.group('id')))
+			return tag.a(match, class_="ext-link", href = self.eventum_url % int(fullmatch.group('id')))
 		yield (self.issue_regexp, issue)
 
 	def get_link_resolvers(self):
