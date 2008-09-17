@@ -25,13 +25,18 @@ class TracEventumLink(Component):
 	implements(IWikiSyntaxProvider)
 
 	issue_regexp = r"\bissue(?::|\s+#?)(?P<id>\d+)\b"
-	eventum_url = "https://eventum.dev.delfi.ee/view.php?id=%d"
 
 	# IWikiSyntaxProvider methods
 	def get_wiki_syntax(self):
+		eventum_url = self.env.config.get('eventum', 'url')
+
 		def issue(formatter, match, fullmatch):
-			return tag.a(tag.span(match, class_="icon"), class_="ext-link", href = self.eventum_url % int(fullmatch.group('id')))
-		yield (self.issue_regexp, issue)
+			return tag.a(tag.span(match, class_="icon"), class_="ext-link", href = eventum_url % int(fullmatch.group('id')))
+
+		if eventum_url:
+			yield (self.issue_regexp, issue)
+		else:
+			self.log.warn('url not set in configuration. Eventum links disabled')
 
 	def get_link_resolvers(self):
 		return []
