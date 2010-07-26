@@ -24,7 +24,7 @@ else:
 class TracEventumLink(Component):
 	implements(IWikiSyntaxProvider)
 
-	issue_regexp = r"\b[Ii][S][Ss][Ss][Uu][Ee]:?\s+?#?(?P<id>\d+)\b"
+    issue_regexp = r"\b[Ii][Ss][Ss][Uu][Ee]:?\s+?#?(?P<id>\d+)\b"
 
 	# IWikiSyntaxProvider methods
 	def get_wiki_syntax(self):
