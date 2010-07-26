@@ -24,7 +24,7 @@ else:
 class TracEventumLink(Component):
 	implements(IWikiSyntaxProvider)
 
-	issue_regexp = r"\bissue(?::|\s+#?)(?P<id>\d+)\b"
+    issue_regexp = r"\b(?i:issue):?\s+?#?(?P<id>\d+)\b"
 
 	# IWikiSyntaxProvider methods
 	def get_wiki_syntax(self):
