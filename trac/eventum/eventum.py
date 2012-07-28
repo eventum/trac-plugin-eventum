@@ -31,7 +31,7 @@ class TracEventumLink(Component):
 		eventum_url = self.env.config.get('eventum', 'url')
 
 		def issue(formatter, match, fullmatch):
-			return tag.a(tag.span(match, class_="icon"), class_="ext-link", href = eventum_url % int(fullmatch.group('id')))
+			return tag.a(tag.span(u'\u200b', class_="icon"), match, class_="ext-link", href=eventum_url % int(fullmatch.group('id')))
 
 		if eventum_url:
 			yield (self.issue_regexp, issue)
