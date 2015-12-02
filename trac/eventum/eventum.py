@@ -18,8 +18,7 @@ if [int(x) for x in trac.__version__.split('.')] >= [0, 11]:
 	from genshi.builder import tag
 else:
 	# trac 0.10
-	from trac.util.html import html
-	tag = html
+	from trac.util.html import html as tag
 
 class TracEventumLink(Component):
 	implements(IWikiSyntaxProvider)
