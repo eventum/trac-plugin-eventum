@@ -7,7 +7,7 @@ setup(
 	author='Elan Ruusamäe',
 	author_email='glen@pld-linux.org',
 	description='Automatically create links for Eventum issue ID-s.',
-	url='https://launchpad.net/eventum',
+	url='https://github.com/eventum/eventum',
 	license='BSD-like',
 	packages=['trac.eventum'],
 	entry_points = {'trac.plugins': ['trac.eventum = trac.eventum']}
